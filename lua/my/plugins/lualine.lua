@@ -20,46 +20,17 @@ return {
                 return str:gsub(path_separator, breadcrump_sep)
               end,
             },
+          },
+          lualine_c = {
             {
               'navic',
               -- Component specific options
-              color_correction = nil, -- Can be nil, "static" or "dynamic". This option is useful only when you have highlights enabled.
-              navic_opts = {
-                icons = {
-                  File = '󰈙',
-                  Module = '',
-                  Namespace = '󰌗',
-                  Package = '',
-                  Class = '󰌗',
-                  Method = '󰆧',
-                  Property = '',
-                  Field = ' ',
-                  Constructor = '',
-                  Enum = '󰕘',
-                  Interface = '󰕘',
-                  Function = '󰊕',
-                  Variable = '󰆧',
-                  Constant = '󰏿',
-                  String = '󰀬 ',
-                  Number = '󰎠',
-                  Boolean = '◩',
-                  Array = '󰅪',
-                  Object = '󰅩',
-                  Key = '󰌋 ',
-                  Null = '󰟢',
-                  EnumMember = ' ',
-                  Struct = '󰌗',
-                  Event = ' ',
-                  Operator = '󰆕 ',
-                  TypeParameter = '󰊄 ',
-                },
-                separator = ' > ',
-                depth_limit = 3,
-                depth_limit_indicator = '..',
+              opts = {
+                color_correction = nil, --either nil, "static" or "dynamic". only for highlighting.
+                separator = '〉',
               },
             },
           },
-          lualine_c = {},
           lualine_x = { 'lsp_progress' },
           lualine_y = {
             'diagnostics',
@@ -74,8 +45,8 @@ return {
               end,
             },
             'filetype',
-            'fileformat',
-            'progress',
+            -- 'fileformat',
+            -- 'progress',
           },
           lualine_z = { 'location' },
         },

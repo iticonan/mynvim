@@ -3,7 +3,6 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      -- **#init.luainit.lua
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
@@ -14,18 +13,17 @@ return {
 
       -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
-      { 'folke/neodev.nvim', enabled = false, opts = {} },
-      -- { -- lazydev replaces neodev
-      --   'folke/lazydev.nvim',
-      --   ft = 'lua', -- only load on lua files
-      --   opts = {
-      --     library = {
-      --       -- See the configuration section for more details
-      --       -- Load luvit types when the `vim.uv` word is found
-      --       { path = 'luvit-meta/library', words = { 'vim%.uv' } },
-      --     },
-      --   },
-      -- },
+      { 'Bilal2453/luvit-meta', lazy = true },
+      { -- lazydev replaces neodev
+        'folke/lazydev.nvim',
+        ft = 'lua', -- only load on lua files
+        opts = {
+          library = {
+            -- Load luvit types when the `vim.uv` word is found
+            { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+          },
+        },
+      },
     },
     config = function()
       -- If you're wondering about lsp vs treesitter, you can check out the wonderfully
@@ -129,6 +127,9 @@ return {
         phpactor = {},
         tailwindcss = {
           filetypes = { 'css', 'twig', 'html' },
+        },
+        emmet_ls = {
+          filetypes = { 'twig' },
         },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs

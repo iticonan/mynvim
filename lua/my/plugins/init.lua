@@ -19,14 +19,21 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = false },
   },
-  --   { -- navigation breadcrumbs
-  --     'SmiteshP/nvim-navic',
-  --     dependencies = { 'neovim/nvim-lspconfig' },
-  --     opts = {
-  --       lsp = {
-  --         auto_attach = true,
-  --         preference = nil,
-  --       },
-  --     },
-  --   },
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = function()
+      require('nvim-autopairs').setup()
+    end,
+  },
+  { -- navigation breadcrumbs
+    'SmiteshP/nvim-navic',
+    dependencies = { 'neovim/nvim-lspconfig' },
+    opts = {
+      lsp = {
+        auto_attach = true,
+        preference = nil,
+      },
+    },
+  },
 }

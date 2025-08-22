@@ -1,3 +1,11 @@
+--  TIME SAVERS
+-- faster switch to cmd mode. I got used to it
+vim.keymap.set({ 'n', 'v' }, ';', ':')
+vim.keymap.set({ 'n', 'v' }, ':', ';')
+--  using ; as above save buffer in insert or normal mode
+vim.keymap.set('i', '<C-s>', '<C-o>:w<CR>')
+vim.keymap.set('n', '<C-s>', ':w<CR>')
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -16,11 +24,11 @@ vim.keymap.set('n', '<S-Left>', '<C-w><C-h>')
 vim.keymap.set('n', '<S-Down>', '<C-w><C-j>')
 vim.keymap.set('n', '<S-Up>', '<C-w><C-k>')
 vim.keymap.set('n', '<S-Right>', '<C-w><C-l>')
+vim.keymap.set('n', '<S-Tab>', '<C-w><C-w>')
 vim.keymap.set('i', '<S-Left>', '<C-o><C-w><C-h>')
 vim.keymap.set('i', '<S-Down>', '<C-o><C-w><C-j>')
 vim.keymap.set('i', '<S-Up>', '<C-o><C-w><C-k>')
 vim.keymap.set('i', '<S-Right>', '<C-o><C-w><C-l>')
-
 --pane/window/terminal-pane management
 vim.keymap.set('n', "<M-S-'>", ':vs<CR>', { silent = true })
 vim.keymap.set('i', "<M-S-'>", '<Esc>:vs<CR>', { silent = true })
@@ -57,10 +65,6 @@ vim.keymap.set('n', '<C-BS>', 'dF<space>')
 -- C-Delete delete word backwards
 vim.keymap.set('n', '<C-Del>', 'daw')
 vim.keymap.set('i', '<C-Del>', '<C-o>daw')
-
--- faster switch to cmd mode. I got used to it
-vim.keymap.set({ 'n', 'v' }, ';', ':')
-vim.keymap.set({ 'n', 'v' }, ':', ';')
 
 -- plugin keymaps
 vim.keymap.set('n', '-', ':lua MiniFiles.open()<cr>', { desc = '', silent = true })
